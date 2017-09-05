@@ -33,7 +33,7 @@ describe("Good - Helpful service", function() {
 
  		var envObj = helpfulService.getEnv();
 
- 		expect(envObj).to.have.property('BACKEND_API_URL').to.equal('http://backend_api');
+ 		expect(envObj).to.have.property('BACKEND_API_URL').to.equal('http://sample-project-backend');
  	});
 
  	it ('Should ping the backend server', function(done) {
