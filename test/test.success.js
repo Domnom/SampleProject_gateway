@@ -36,4 +36,20 @@ describe("Good - Helpful service", function() {
  		expect(envObj).to.have.property('BACKEND_API_URL').to.equal('http://backend_api');
  	});
 
+ 	it ('Should ping the backend server', function(done) {
+
+ 		chai.request('0.0.0.0')
+ 			.get('/ping/backend')
+ 			.end(function(err, res) {
+
+ 				expect(res).to.have.status(200);
+ 				expect(res.body).to.include.all.keys('success', 'body');
+ 				expect(res.body.success).to.equal(true);
+ 				expect(res.body.body).to.include.all.keys('success', 'data');
+
+ 				done();
+ 			});
+
+ 	});
+
  })
